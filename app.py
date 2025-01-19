@@ -1,10 +1,10 @@
 import streamlit as st
 import cv2
 import av
-from streamlit_webrtc import webrtc_streamer, VideoTransformerBase
+from streamlit_webrtc import webrtc_streamer, VideoProcessorBase
 from gaze_tracking import GazeTracking
 
-class VideoTransformer(VideoTransformerBase):
+class VideoProcessor(VideoProcessorBase):
     def __init__(self):
         self.gaze = GazeTracking()
 
@@ -31,7 +31,7 @@ def main():
 
     # webrtc_streamer(
     #     key="gaze_tracking",
-    #     video_transformer_factory=VideoTransformer,
+    #     video_transformer_factory=VideoProcessor,
     #     async_transform=True,
     # )
 
