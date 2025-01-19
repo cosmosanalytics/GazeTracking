@@ -29,11 +29,20 @@ class VideoTransformer(VideoTransformerBase):
 def main():
     st.title("Gaze Tracking App")
 
+    # webrtc_streamer(
+    #     key="gaze_tracking",
+    #     video_transformer_factory=VideoTransformer,
+    #     async_transform=True,
+    # )
+
     webrtc_streamer(
-        key="gaze_tracking",
+        key="example",
         video_transformer_factory=VideoTransformer,
-        async_transform=True,
+        rtc_configuration={
+            "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+        }
     )
+
 
 if __name__ == "__main__":
     main()
